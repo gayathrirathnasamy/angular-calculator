@@ -1,0 +1,20 @@
+<div class="calc-container">
+  <div class="displayArea">
+    <div class="calculationText">
+      {{operand1}}{{operator}}{{operand2}}
+    </div>
+    <div class="resultText">
+      {{result}}
+    </div>
+  </div>
+
+  <div class="button-container">
+    <div *ngFor="let labels of operatorLabels.labelList" class="label-container">
+      <div *ngFor="let item of labels" class="labels"
+        [ngClass]="{'double-width': (item.label==='AC' || item.label==='0'), 'label-purple': (item.label==='AC' || item.label==='%'), 'border-radius-left': (item.label==='0'), 'border-radius-right': (item.label==='=')}"
+        (click)=operation(item)>
+        {{item.label}}
+      </div>
+    </div>
+  </div>
+</div>
